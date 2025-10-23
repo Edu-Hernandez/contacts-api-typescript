@@ -1,15 +1,14 @@
 import express from "express";
-import contactRoutes from "./routes/contactRoutes";
+import router from "./api";
+import { PORT } from "./config";
 
 const app = express();
-
-const PORT = process.env.PORT || 3001;
 
 //middleware
 app.use(express.json());
 
 //Rutas
-app.use("/contacts", contactRoutes);
+app.use("/api", router);
 
 //Ruta de test
 app.get("/", (req, res) => {
